@@ -1,4 +1,4 @@
-# Definición de la clase Libro
+# Definición de la clase Libro.
 class Libro:
     def __init__(self, titulo, autor, isbn, disponible=True):
         self.titulo = titulo
