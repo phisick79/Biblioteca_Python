@@ -1,49 +1,56 @@
-
+libros = []
 # Creacion de la clase Libro.
 class Libro():                                                              
-  # Creacoin de los atributos.
-  def __init__(self,isbn, titulo, autor,disponible= True):                  
-    self.isbn = isbn
-    self.titulo = titulo
-    self.autor = autor
-    self.disponible = disponible
+    # Creacoin de los atributos.
+    def __init__(self,isbn, titulo, autor,disponible= True):                  
+        self.isbn = isbn
+        self.titulo = titulo
+        self.autor = autor
+        self.disponible = disponible
 
 # Metodo agregar.
-  def agregar():                                                            
-    # Llamada para introducir los datos.
-    titulo = str (input("Ingrese el título del libro: "))
-    autor = str (input("Ingrese el autor del libro: "))
-    isbn = str (input("Ingrese el isbn del libro: "))
-    # Se crea una variable para meter el constructor.
-    libro = Libro(isbn, titulo, autor)
-    # Introduce los datos guardados en la variable libro a la lista libros.
-    libros.append(libro)
-    print("Libro agregado con exito.")
+    def agregar():                                                            
+        # Llamada para introducir los datos.
+        titulo = str (input("Ingrese el título del libro: "))
+        autor = str (input("Ingrese el autor del libro: "))
+        isbn = str (input("Ingrese el isbn del libro: "))
+        for libro in libros:
+            if libro.isbn == isbn:
+                print("El libro ya existe")
+                return
+            libro = Libro(isbn, titulo, autor)
+            libros.append(libro)
+            print("Libro agregado con exito.")
+            
+# Se crea una variable para meter el constructor.
+   
+# Introduce los datos guardados en la variable libro a la lista libros.
+    
     
 # Metodo prestar.
-  def prestar():
-    # Peticion del libro a prestar y se guarda en una variable (isbn).
-    isbn = input("Ingrese el isbn del libro que desea prestar: ")
-    # Se crea una varible y se le da un valor para que sea booleana.
-    encontrado = False
-    # Se crea un bucle para buscar si esta el isbn
-    for libro in libros:
-        if libro.isbn == isbn:
-            # Cuando encuentra el isbn cambia la variable encontrado
-            encontrado = True
-            if libro.disponible:
-              # Cuando lo encuentra cambia el valor de la cadena y pone que no esta disponible
-              libro.disponible = False
-              print(f"El Libro {libro.titulo} ha sido prestado exitosamente.")
-              return
-            else:
-              # Si no esta disponible el libro avisa con una respuesta por pantalla.
-              print("El Libro no está disponible en este momento.")
-              return
-    
-    if not encontrado:
-      # Si no esta el isbn en la lista da un mensaje de error.
-        print("El Libro no se encuentra en la biblioteca.")
+    def prestar():
+        # Peticion del libro a prestar y se guarda en una variable (isbn).
+        isbn = input("Ingrese el isbn del libro que desea prestar: ")
+        # Se crea una varible y se le da un valor para que sea booleana.
+        encontrado = False
+        # Se crea un bucle para buscar si esta el isbn
+        for libro in libros:
+            if libro.isbn == isbn:
+                # Cuando encuentra el isbn cambia la variable encontrado
+                encontrado = True
+                if libro.disponible:
+                    # Cuando lo encuentra cambia el valor de la cadena y pone que no esta disponible
+                    libro.disponible = False
+                    print(f"El Libro {libro.titulo} ha sido prestado exitosamente.")
+                    return
+                else:
+                    # Si no esta disponible el libro avisa con una respuesta por pantalla.
+                    print("El Libro no está disponible en este momento.")
+                    return
+          
+        if not encontrado:
+          # Si no esta el isbn en la lista da un mensaje de error.
+          print("El Libro no se encuentra en la biblioteca.")
 
   # Metodo devolver
   def devolver():
@@ -105,8 +112,35 @@ class Libro():
     else:
       # Si no lo encuentra manda un mensaje.
       print("El Libro no ha sido encontrado.")
+      
+      
+      
+  
 # Se crea una una lista para poder guardar los libros en la lista
-libros = []
+  def inicio():
+    libros.append(Libro("1234", "El señor de los anillos", "J.R.R. Tolkien"))
+    libros.append(Libro("5678", "Harry Potter y la piedra filosofal", "J.K. Rowling"))
+    libros.append(Libro("2345", "El principito", "Antoine de Saint-Exupéry"))
+    libros.append(Libro("6789", "Cien años de soledad", "Gabriel García Márquez"))
+    libros.append(Libro("3456", "Don Quijote de la Mancha", "Miguel de Cervantes Saavedra"))
+    libros.append(Libro("7890", "La Odisea", "Homero"))
+    libros.append(Libro("4567", "La Iliada", "Homero"))
+    libros.append(Libro("8901", "El retrato de Dorian Gray", "Oscar Wilde"))
+    libros.append(Libro("9012", "El principito", "Antoine de Saint-Exupéry"))
+    libros.append(Libro("0123", "Cien años de soledad", "Gabriel García Márquez"))
+    libros.append(Libro("3457", "Don Quijote de la Mancha", "Miguel de Cervantes Saavedra"))
+    libros.append(Libro("6780", "La Odisea", "Homero"))
+    libros.append(Libro("4568", "La Iliada", "Homero"))
+    libros.append(Libro("7891", "El retrato de Dorian Gray", "Oscar Wilde"))
+    libros.append(Libro("8902", "El principito", "Antoine de Saint-Exupéry"))
+    libros.append(Libro("0124", "Cien años de soledad", "Gabriel García Márquez"))
+    libros.append(Libro("3458", "Don Quijote de la Mancha", "Miguel de Cervantes Saavedra"))
+    libros.append(Libro("6781", "La Odisea", "Homero"))
+    libros.append(Libro("4569", "La Iliada", "Homero"))
+    
+    
+# Se llama al metodo inicio para que cree una lista de libros.
+Libro.inicio()
 # Se crea un bucle infinito.
 while True:
   # Se muestran las opciones del programa
