@@ -18,9 +18,9 @@ class Libro():
             if libro.isbn == isbn:
                 print("El libro ya existe")
                 return
-            libro = Libro(isbn, titulo, autor)
-            libros.append(libro)
-            print("Libro agregado con exito.")
+        libro = Libro(isbn, titulo, autor)
+        libros.append(libro)
+        print("Libro agregado con exito.")
             
 # Se crea una variable para meter el constructor.
    
@@ -65,11 +65,11 @@ class Libro():
               if not libro.disponible:
                 # Cuando lo encuentra cambia el valor de la cadena y pone que esta disponible
                 libro.disponible = True
-                print(f"El Libro {libro.titulo} ha sido prestado exitosamente.")
+                print(f"El Libro {libro.titulo} ha sido devuelto exitosamente.")
                 return
               else:
                 # Si no esta disponible el libro avisa con una respuesta por pantalla.
-                print("El Libro no está disponible en este momento.")
+                print("El Libro esta en la Biblioteca, introduzaca correctamente el ISBN.")
                 return
       
         if encontradoD:
